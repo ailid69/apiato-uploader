@@ -4,8 +4,8 @@
  * @apiGroup           Uploader
  * @apiName            delete
  *
- * @api                {DELETE} /v1/uploaders/:id Endpoint title here..
- * @apiDescription     Endpoint description here..
+ * @api                {DELETE} /v1/uploaders/:id Delete Uploaded File
+ * @apiDescription     Delete Uploaded File
  *
  * @apiVersion         1.0.0
  * @apiPermission      Authenticated User

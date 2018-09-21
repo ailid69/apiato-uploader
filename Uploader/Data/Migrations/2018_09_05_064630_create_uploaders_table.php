@@ -1,26 +1,31 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Config;
 
-class CreateUplodersTable extends Migration
+class CreateUploadersTable extends Migration
 {
-
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
         Schema::create('uploaders', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->string('label')->nullable();
+            $table->string('client_original_name')->nullable();
             $table->morphs('uploaderable');
             $table->integer('user_id')->unsigned();
-            $table->string('type');
+            $table->string('content_type');
             $table->string('extension');
+            $table->enum('disk', array_keys(Config::get('filesystems.disks')))->default(config('filesystems.default'));
             $table->string('path')->collation = 'utf8_unicode_ci';
             $table->unsignedInteger('bytes')->comment('Size in Bytes');
-            $table->unsignedTinyInteger('is_storage')->default(true);
 
             $table->timestamp('created_at');
         });
@@ -28,6 +33,8 @@ class CreateUplodersTable extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
     public function down()
     {
