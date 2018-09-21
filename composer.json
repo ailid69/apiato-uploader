@@ -1,13 +1,13 @@
 
 {
-  "name": "lloricode/apiato-uploader",
+  "name": "ailid69/apiato-uploader",
   "description": "Manage uploading file in Apiato project",
   "type": "apiato-container",
   "license": "MIT",
   "authors": [
       {
-          "name": "Lloric Mayuga Garcia",
-          "email": "lloricode@gmail.com"
+          "name": "David AILI",
+          "email": "david.aili.mx@gmail.com"
       }
   ],
   "require": {
